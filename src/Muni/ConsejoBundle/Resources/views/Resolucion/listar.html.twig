@@ -1,0 +1,41 @@
+{% extends "ConsejoBundle::layout.html.twig" %}
+
+{% block encabezado%} Resoluciones{% endblock %}
+
+{% block body %}
+
+<div class="busqueda">
+        <form action="{{ path('listar_resolucion') }}" method="GET">
+            <input type="text" name="buscar" value="Buscar..."/><input type="submit" value="Buscar"/>
+        </form>
+</div>
+
+<div class="tabla">
+    <table >
+        <a href="{{ path('nueva_resolucion') }}">Nueva Resolucion</a>
+            <tr>
+                <td>Resolucion</td>
+                <td>Descripcion</td>
+                <td>Monto Estipulado</td>
+                <td>Fecha Limite</td>
+            </tr>
+            {% for reso in resoluciones %}
+            <tr>
+                <td>{{ reso.resolucion }}</td>
+                <td>{{ reso.descripcion }}</td>
+                <td>{{ reso.monto }}</td>
+                <td>{{ reso.fechaLimite |date("d/m/y") }}</td>
+                <td><a href="{{ path('mostrar_resolucion' , { 'id' : reso.id }) }}" >Ver</a>
+                    <a href="{{ path('editar_resolucion' , { 'id' : reso.id }) }}" >Editar</a></td>
+            </tr>
+            {% endfor %}
+        
+             <tr>
+                <td colspan="4"> Total {{ resoluciones |length }}</td>
+            </tr>
+
+        
+    </table>
+</div>
+    
+{% endblock %}

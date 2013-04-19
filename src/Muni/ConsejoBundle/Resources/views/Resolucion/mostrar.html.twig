@@ -1,0 +1,65 @@
+{% extends "ConsejoBundle::layout.html.twig" %}
+
+{% block encabezado%} Resolucion {{resolucion.id}}{% endblock %}
+
+{% block body %}
+
+<div class="tabla-vertical">
+<table>
+    <tr>
+        <th>Resolucion</th>
+        <td>{{ resolucion.resolucion }}</td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Descripcion</th>
+        <td>{{ resolucion.descripcion }}</td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Monto</th>
+        <td>{{ resolucion.monto }}</td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Fecha Limite</th>
+        <td>{{ resolucion.fechaLimite | date('Y-m-d') }}</td>
+        <td></td>
+    </tr>
+</table>
+</div>
+<br>
+<hr>
+
+<div class="tabla">
+    <table>
+        <a href="{{ path('nuevo_movimiento' , { 'id_resolucion' : resolucion.id }) }}">Agregar Movimiento</a>
+            <tr>
+                <td>Numero</td>
+                <td>Fecha </td>
+                <td>Descripcion</td>
+                <td>Gasto</td>
+                
+            </tr>
+            {% set total = 0 %}
+            {% for m in resolucion.movimientos %}
+                <tr>
+                    <td>{{ m.id }}</td>
+                    <td>{{ m.fecha | date('Y-m-d H:i:s') }}</td>
+                    <td>{{ m.descripcion }}</td>                    
+                    <td>{{ m.gasto }}</td>
+                    <td><a href="#" onclick="confirmar('¿Esta seguro de Borrar el Estado?', '{{ path('borrar_movimiento', { 'id': m.id }) }}')" >Borrar</a></td>
+                    {% set total = total + m.gasto  %}
+                </tr>
+            {% endfor %}
+                <tr >
+                    <td id="total" colspan="3">Total Gastado</td>
+                    <td> {{ total }}</td>
+                </tr>
+
+
+
+    </table>
+</div>
+
+{% endblock %}

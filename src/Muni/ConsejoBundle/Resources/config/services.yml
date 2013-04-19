@@ -1,0 +1,7 @@
+parameters:
+#    consejo.example.class: Muni\ConsejoBundle\Example
+
+services:
+#    consejo.example:
+#        class: %consejo.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

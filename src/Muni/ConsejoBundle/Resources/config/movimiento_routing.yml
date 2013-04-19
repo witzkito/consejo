@@ -1,0 +1,7 @@
+nuevo_movimiento:
+    pattern:  /movimiento/nuevo/{id_resolucion}
+    defaults: { _controller: ConsejoBundle:Movimiento:nuevo }
+
+borrar_movimiento:
+    pattern:  /movimiento/borrar/{id}
+    defaults: { _controller: ConsejoBundle:Movimiento:borrar }

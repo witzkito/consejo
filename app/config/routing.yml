@@ -1,0 +1,12 @@
+consejo:
+    resource: "@ConsejoBundle/Resources/config/routing.yml"
+    prefix:   /
+    
+_resolucion:
+    resource: "@ConsejoBundle/Resources/config/resolucion_routing.yml"
+    
+_movimiento:
+    resource: "@ConsejoBundle/Resources/config/movimiento_routing.yml"
+
+logout:
+    pattern: /logout

@@ -1,0 +1,15 @@
+listar_resolucion:
+    pattern:  /resolucion/listar
+    defaults: { _controller: ConsejoBundle:Resolucion:listar }
+    
+nueva_resolucion:
+    pattern:  /resolucion/nuevo
+    defaults: { _controller: ConsejoBundle:Resolucion:nuevo }
+    
+editar_resolucion:
+    pattern:  /resolucion/editar/{id}
+    defaults: { _controller: ConsejoBundle:Resolucion:editar }
+    
+mostrar_resolucion:
+    pattern:  /resolucion/mostrar/{id}
+    defaults: { _controller: ConsejoBundle:Resolucion:mostrar }

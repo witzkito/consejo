@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Consejo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="{{ asset('bundles/consejo/css/style.css') }}" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="css/images/favicon.ico" />
+
+</head>
+<body>
+<div class="shell">
+  <div class="border">
+    <div id="header">
+      <h1>{% block encabezado %} {% endblock %}</h1>
+      
+      <div class="cl">&nbsp;</div>
+    </div>
+    <div id="navigation">
+      <ul>
+          <li><a href="{{ path('consejo_homepage') }}" class="active">Inicio</a></li>
+      {% block menu %}
+        
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        
+      {% endblock %}
+      </ul>
+            <div class="cl">&nbsp;</div>
+      
+    </div>
+    
+    <div id="main">
+      <div id="content" class="left">
+        {% block body %}{% endblock %}
+      </div>
+      <div class="cl">&nbsp;</div>
+    </div>
+    <div class="shadow-l"></div>
+    <div class="shadow-r"></div>
+    <div class="shadow-b"></div>
+  </div>
+  <div id="footer">
+    <p class="left">Municipalidad de Puerto Rico, Misiones, Argentina</p>
+    <p class="right">Fernando Witzke - 2013</p>
+    <div class="cl"></div>
+  </div>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+function confirmar (mensaje, url) {
+
+    if(confirm(mensaje)) {
+
+        document.location.href= url;
+
+    }
+
+}
+
+</script>

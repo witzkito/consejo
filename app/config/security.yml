@@ -1,0 +1,22 @@
+security:
+    firewalls:
+        secured_area:
+            pattern:    ^/
+            anonymous: ~
+            logout: ~
+            http_basic:
+                realm: "Seguridad del Consejo"
+
+    access_control:
+        - { path: ^/, roles: ROLE_ADMIN }
+        - { path: ^/resolucion, roles: ROLE_ADMIN }
+        - { path: ^/movimiento, roles: ROLE_ADMIN }
+
+    providers:
+        in_memory:
+            memory:
+                users:
+                    gauto: { password: gauto1234, roles: 'ROLE_ADMIN' }
+
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext

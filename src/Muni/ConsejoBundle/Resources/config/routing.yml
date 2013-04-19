@@ -1,0 +1,3 @@
+consejo_homepage:
+    pattern:  /
+    defaults: { _controller: ConsejoBundle:Resolucion:listar }
