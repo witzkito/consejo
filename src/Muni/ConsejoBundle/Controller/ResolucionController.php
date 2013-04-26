@@ -5,6 +5,7 @@ namespace Muni\ConsejoBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Muni\ConsejoBundle\Entity\Resolucion;
 use Muni\ConsejoBundle\Form\ResolucionType;
+use \DateTime;
 
 class ResolucionController extends Controller
 {
@@ -32,17 +33,23 @@ class ResolucionController extends Controller
         $em = $this->get('doctrine')->getManager();
                 
         $resolucion = new Resolucion();
+        $resolucion->setFechaLimite(new DateTime());
         $form = $this->get('form.factory')->create(
                 new ResolucionType(),
                 $resolucion
         );
-                
+        
         $request = $this->get('request');
         if ($request->getMethod() == 'POST'){
             $form->bind($request);
             if ($form->isValid()){
                 
                 $resolucion = $form->getData();
+                
+                if (!$resolucion->tieneLimite){
+                    $resolucion->setFechaLimite(null);
+                }
+                
                 $em->persist($resolucion);
                 
 

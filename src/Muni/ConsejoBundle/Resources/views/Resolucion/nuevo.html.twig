@@ -5,6 +5,10 @@
 {% block body %}
     <div id="form-area" class="form">
         <form action="{{ path('nueva_resolucion') }}" method="post">
+            {{ form_row(form.resolucion) }}
+            {{ form_row(form.descripcion) }}
+            {{ form_row(form.monto) }}
+            <div id="fechalimitelabel">{{ form_label(form.fechaLimite) }}</div><div id="fechalimitechk"> {{ form_widget(form.tieneLimite) }}</div> {{ form_widget(form.fechaLimite) }}
             {{ form_rest(form) }}
             <input type="submit" value="Agregar Resolucion" />
         </form>

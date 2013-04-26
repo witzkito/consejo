@@ -46,7 +46,7 @@ class Resolucion
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fecha_limite", type="date")
+     * @ORM\Column(name="fecha_limite", type="date", nullable= true)
      */
     private $fechaLimite;
     
@@ -54,6 +54,8 @@ class Resolucion
     * @ORM\OneToMany(targetEntity="Movimiento", mappedBy="resolucion")
     */
     private $movimientos;
+    
+    public $tieneLimite;
 
 
     /**
@@ -173,7 +175,9 @@ class Resolucion
     
     public function __construct()
     {
-        $this->fechaLimite = new DateTime('Now');
+        $this->tieneLimite = false;
+        
         
     }
+        
 }

@@ -24,7 +24,9 @@
                 <td>{{ reso.resolucion }}</td>
                 <td>{{ reso.descripcion }}</td>
                 <td>{{ reso.monto }}</td>
-                <td>{{ reso.fechaLimite |date("d/m/y") }}</td>
+                <td>{% if reso.fechaLimite is not null %}
+                        {{ reso.fechaLimite |date("d/m/y") }}
+                    {% endif %}</td>
                 <td><a href="{{ path('mostrar_resolucion' , { 'id' : reso.id }) }}" >Ver</a>
                     <a href="{{ path('editar_resolucion' , { 'id' : reso.id }) }}" >Editar</a></td>
             </tr>

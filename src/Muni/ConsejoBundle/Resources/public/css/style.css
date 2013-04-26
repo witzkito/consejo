@@ -315,12 +315,29 @@ textarea {
 #form-area {
 	width: 600px;
 	margin-top: 25px;
+        
 }
 
 #form-area select {
     font-family: Helvetica, sans-serif;
     font-size: 1.4em;
 }
+
+#fechalimitelabel {
+    float: left;
+}
+
+#fechalimitechk{
+    margin-top: 10px; 
+    float:left;
+}
+
+#muni_consejobundle_resoluciontype_fechaLimite {
+    float:left;
+    margin-left: 20px;
+}
+
+
 
 #form-area input, #form-area textarea {
 	padding: 5px;

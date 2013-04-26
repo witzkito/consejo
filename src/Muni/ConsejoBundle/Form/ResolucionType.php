@@ -14,6 +14,10 @@ class ResolucionType extends AbstractType
             ->add('resolucion')
             ->add('descripcion')
             ->add('monto')
+            ->add('tieneLimite', 'checkbox', array(
+                "required" => false,
+                
+            ))
             ->add('fechaLimite')
         ;
     }
